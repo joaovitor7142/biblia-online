@@ -67,6 +67,16 @@ async function getTexto() {
     document.querySelector('#id_capitulo').innerHTML = `${capitulo}`;
     document.querySelector('#id_verso').innerHTML = `${verso}`;
 
+    const element = document.querySelector('#anterior');
+    element.addEventListener('click', () => {
+        window.location.href = `texto?livro=${livro}&capitulo=${capitulo}&verso=${Number(verso) - 1}`;
+    });
+
+    element = document.querySelector('#proximo');    
+    element.addEventListener('click', () => {
+        window.location.href = `texto?livro=${livro}&capitulo=${capitulo}&verso=${Number(verso) + 1}`;
+    });
+    
     const { data } = await supabaseClient
         .from('verses')
         .select('text')

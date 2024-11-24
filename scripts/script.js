@@ -10,14 +10,14 @@ const decodedKey = atob(supabaseKey);
 
 const supabaseClient = supabase.createClient(decodedUrl, decodedKey);
 
-executar();
+await executar();
 
-function executar() {
+async function executar() {
     const segmento = getSegmentoUrl();
 
-    if (segmento == 'capitulos') { getCapitulos(); }
-    if (segmento == 'versos') { getVersos(); }
-    if (segmento == 'visualizador') { getVisualizador(); }
+    if (segmento == 'capitulos') { await getCapitulos(); }
+    if (segmento == 'versos') { await getVersos(); }
+    if (segmento == 'visualizador') { await getVisualizador(); }
 }
 
 async function getCapitulos() {

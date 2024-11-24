@@ -29,12 +29,18 @@ div.seletor-livros {
     display: grid;
     gap: 4px;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    animation: fade 120ms ease forwards;
 }
 
 div.seletor-capitulos, div.seletor-versos {
     display: grid;
     gap: 4px;
     grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    animation: fade 120ms ease forwards;
+}
+
+div.visualizador {  
+    animation: fade 120ms ease forwards;
 }
 
 div.controles button {

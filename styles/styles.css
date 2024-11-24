@@ -13,10 +13,16 @@ p.seletor {
     margin-bottom: 8px;
 }
 
-div.seletor {
+div.seletor-livros {
     display: grid;
     gap: 4px;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+div.seletor-capitulos {
+    display: grid;
+    gap: 4px;
+    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
 }
 
 header {

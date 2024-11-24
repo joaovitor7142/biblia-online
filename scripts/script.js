@@ -20,8 +20,52 @@ function executar() {
     if (segmento == 'visualizador') { getVisualizador(); }
 }
 
+async function getCapitulos() {
+    const { livro } = getParamsUrl();
+
+    const { data } = await supabase
+        .from('verses')
+        .select('chapter', { count: 'exact' })
+        .eq('book', livro)
+        .group('chapter');
+
+    if (data && data.length > 0) {
+        const quantidade = data.length;
+
+        for (let i = 0; i < quantidade; i++) {
+            const capitulo = i + 1;
+            const element = document.createElement('a');
+            element.href = `versos?livro=${livro}&capitulo=${capitulo}`;
+            element.innerHTML = `<button>${capitulo}</button>`;
+            document.querySelector('.seletor-capitulos').appendChild(element);
+        }
+    }
+}
+
+async function getVersos() {
+    const { livro, capitulo } = getParamsUrl();
+
+    const { data } = await supabase
+        .from('verses')
+        .select('chapter', { count: 'exact' })
+        .eq('book', livro)
+        .eq('chapter', capitulo);
+
+    if (data && data.length > 0) {
+        const quantidade = data.length; 
+
+        for (let i = 0; i < quantidade; i++) {
+            const verso = i + 1;
+            const element = document.createElement('a');
+            element.href = `visualizador?livro=${livro}&capitulo=${capitulo}&verso=${verso}`;
+            element.innerHTML = `<button>${verso}</button>`;
+            document.querySelector('.seletor-versos').appendChild(element); 
+        }
+    }
+}
+
 async function getVisualizador() {
-    const {livro, capitulo, verso} = getParamsUrl();
+    const { livro, capitulo, verso } = getParamsUrl();
 
     const { data } = await supabaseClient
         .from('verses')

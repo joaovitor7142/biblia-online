@@ -22,7 +22,7 @@ div.seletor-livros {
 div.seletor-capitulos {
     display: grid;
     gap: 4px;
-    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
 }
 
 header {

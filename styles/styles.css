@@ -15,7 +15,7 @@ main {
     animation: fade 120ms ease forwards;
 }
 
-h1.titulo {
+h1.titulo, h3.titulo {
     margin: 0;
     margin-bottom: 8px;
 }

@@ -23,7 +23,7 @@ function executar() {
 async function getVisualizador() {
     const {livro, capitulo, verso} = getParamsUrl();
 
-    const { data } = await supabase
+    const { data } = await supabaseClient
         .from('verses')
         .select('text')
         .eq('book', livro)

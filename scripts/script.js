@@ -67,13 +67,13 @@ async function getTexto() {
     document.querySelector('#id_capitulo').innerHTML = `${capitulo}`;
     document.querySelector('#id_verso').innerHTML = `${verso}`;
 
-    const element = document.querySelector('#anterior');
-    element.addEventListener('click', () => {
+    const buttonAnterior = document.querySelector('#anterior');
+    buttonAnterior.addEventListener('click', () => {
         window.location.href = `texto?livro=${livro}&capitulo=${capitulo}&verso=${Number(verso) - 1}`;
     });
 
-    element = document.querySelector('#proximo');    
-    element.addEventListener('click', () => {
+    const buttonProximo = document.querySelector('#proximo');    
+    buttonProximo.addEventListener('click', () => {
         window.location.href = `texto?livro=${livro}&capitulo=${capitulo}&verso=${Number(verso) + 1}`;
     });
     

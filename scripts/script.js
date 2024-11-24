@@ -22,6 +22,7 @@ async function executar() {
 
 async function getCapitulos() {
     const { livro } = getParamsUrl();
+    document.querySelector('#id_livro').innerHTML = `${livro}`;
 
     const { data } = await supabaseClient
         .rpc('count_chapters', { p_book: livro });
@@ -41,6 +42,8 @@ async function getCapitulos() {
 
 async function getVersos() {
     const { livro, capitulo } = getParamsUrl();
+    document.querySelector('#id_livro').innerHTML = `${livro}`;
+    document.querySelector('#id_capitulo').innerHTML = `${capitulo}`;
 
     const { data } = await supabaseClient
         .rpc('count_verses', { p_book: livro, p_chapter: capitulo });
@@ -60,6 +63,9 @@ async function getVersos() {
 
 async function getVisualizador() {
     const { livro, capitulo, verso } = getParamsUrl();
+    document.querySelector('#id_livro').innerHTML = `${livro}`;
+    document.querySelector('#id_capitulo').innerHTML = `${capitulo}`;
+    document.querySelector('#id_verso').innerHTML = `${verso}`;
 
     const { data } = await supabaseClient
         .from('verses')

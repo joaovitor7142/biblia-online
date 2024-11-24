@@ -8,4 +8,48 @@ const supabaseKey = 'ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnBj' +
 const decodedUrl = atob(supabaseUrl);
 const decodedKey = atob(supabaseKey);
 
-const supabase = createClient(decodedUrl, decodedKey);
+const supabaseClient = supabase.createClient(decodedUrl, decodedKey);
+
+executar();
+
+function executar() {
+    const segmento = getSegmentoUrl();
+
+    if (segmento == 'capitulos') { getCapitulos(); }
+    if (segmento == 'versos') { getVersos(); }
+    if (segmento == 'visualizador') { getVisualizador(); }
+}
+
+async function getVisualizador() {
+    const {livro, capitulo, verso} = getParamsUrl();
+
+    const { data } = await supabase
+        .from('verses')
+        .select('text')
+        .eq('book', livro)
+        .eq('chapter', capitulo)
+        .eq('verse', verso);
+
+    if (data && data.length > 0) {
+        const element = document.querySelector('#visualizador');
+        element.innerHTML = data[0].text;
+    }
+}
+
+function getSegmentoUrl() {
+    const url = window.location.pathname.split('/')[1];
+    const segmento = url.split('?')[0];
+
+    return segmento;
+}
+
+function getParamsUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const queryParams = {};
+
+    for (let [key, value] of params.entries()) {
+        queryParams[key] = value;
+    }
+
+    return queryParams;
+}

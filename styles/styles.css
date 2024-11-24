@@ -3,6 +3,18 @@ html, body {
     font-family: sans-serif;
 }
 
+header {
+    padding: 16px;
+    background-color: lightblue;
+}
+
+main {
+    padding: 16px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade 120ms ease forwards;
+}
+
 h1.titulo {
     margin: 0;
     margin-bottom: 8px;
@@ -25,16 +37,9 @@ div.seletor-capitulos, div.seletor-versos {
     grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
 }
 
-header {
-    padding: 16px;
-    background-color: lightblue;
-}
-
-main {
-    padding: 16px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fade 120ms ease forwards;
+div.controles button {
+    width: auto;
+    height: auto;
 }
 
 button {
@@ -53,11 +58,11 @@ button:hover {
 
 @keyframes fade {
     from {
-      opacity: 0;
-      transform: translateY(20px);
+        opacity: 0;
+        transform: translateY(20px);
     }
     to {
-      opacity: 1;
-      transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
-  }
+}

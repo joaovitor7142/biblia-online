@@ -67,16 +67,18 @@ async function getTexto() {
     document.querySelector('#id_capitulo').innerHTML = `${capitulo}`;
     document.querySelector('#id_verso').innerHTML = `${verso}`;
 
-    const buttonAnterior = document.querySelector('#anterior');
-    buttonAnterior.addEventListener('click', () => {
-        window.location.href = `texto?livro=${livro}&capitulo=${capitulo}&verso=${Number(verso) - 1}`;
-    });
+    if (Number(verso) - 1 > 0) {
+        const buttonAnterior = document.querySelector('#anterior');
+        buttonAnterior.addEventListener('click', () => {
+            window.location.href = `texto?livro=${livro}&capitulo=${capitulo}&verso=${Number(verso) - 1}`;
+        });
+    }
 
     const buttonProximo = document.querySelector('#proximo');    
     buttonProximo.addEventListener('click', () => {
         window.location.href = `texto?livro=${livro}&capitulo=${capitulo}&verso=${Number(verso) + 1}`;
     });
-    
+
     const { data } = await supabaseClient
         .from('verses')
         .select('text')

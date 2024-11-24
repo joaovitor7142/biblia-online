@@ -17,7 +17,7 @@ async function executar() {
 
     if (segmento == 'capitulos') { await getCapitulos(); }
     if (segmento == 'versos') { await getVersos(); }
-    if (segmento == 'visualizador') { await getVisualizador(); }
+    if (segmento == 'texto') { await getTexto(); }
 }
 
 async function getCapitulos() {
@@ -54,14 +54,14 @@ async function getVersos() {
         for (let i = 0; i < quantidade; i++) {
             const verso = i + 1;
             const element = document.createElement('a');
-            element.href = `visualizador?livro=${livro}&capitulo=${capitulo}&verso=${verso}`;
+            element.href = `texto?livro=${livro}&capitulo=${capitulo}&verso=${verso}`;
             element.innerHTML = `<button>${verso}</button>`;
             document.querySelector('.seletor-versos').appendChild(element); 
         }
     }
 }
 
-async function getVisualizador() {
+async function getTexto() {
     const { livro, capitulo, verso } = getParamsUrl();
     document.querySelector('#id_livro').innerHTML = `${livro}`;
     document.querySelector('#id_capitulo').innerHTML = `${capitulo}`;
@@ -75,7 +75,7 @@ async function getVisualizador() {
         .eq('verse', verso);
 
     if (data && data.length > 0) {
-        const element = document.querySelector('#visualizador');
+        const element = document.querySelector('#texto');
         element.innerHTML = data[0].text;
     }
 }

@@ -23,7 +23,7 @@ function executar() {
 async function getCapitulos() {
     const { livro } = getParamsUrl();
 
-    const { data } = await supabase
+    const { data } = await supabaseClient
         .from('verses')
         .select('chapter', { count: 'exact' })
         .eq('book', livro)
@@ -45,7 +45,7 @@ async function getCapitulos() {
 async function getVersos() {
     const { livro, capitulo } = getParamsUrl();
 
-    const { data } = await supabase
+    const { data } = await supabaseClient
         .from('verses')
         .select('chapter', { count: 'exact' })
         .eq('book', livro)

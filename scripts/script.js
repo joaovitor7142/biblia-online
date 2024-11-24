@@ -23,7 +23,7 @@ function executar() {
 async function getCapitulos() {
     const { livro } = getParamsUrl();
 
-    const { data } = await supabase
+    const { data } = await supabaseClient
         .rpc('count_chapters', { p_book: livro });
 
     if (data) {
@@ -42,7 +42,7 @@ async function getCapitulos() {
 async function getVersos() {
     const { livro, capitulo } = getParamsUrl();
 
-    const { data } = await supabase
+    const { data } = await supabaseClient
         .rpc('count_verses', { p_book: livro, p_chapter: capitulo });
 
     if (data) {

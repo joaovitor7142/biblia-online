@@ -37,7 +37,7 @@ async function getVisualizador() {
 }
 
 function getSegmentoUrl() {
-    const url = window.location.pathname.split('/')[1];
+    const url = window.location.pathname.split('/')[2];
     const segmento = url.split('?')[0];
 
     return segmento;

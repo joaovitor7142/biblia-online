@@ -10,7 +10,7 @@ const decodedKey = atob(supabaseKey);
 
 const supabaseClient = supabase.createClient(decodedUrl, decodedKey);
 
-await executar();
+executar();
 
 async function executar() {
     const segmento = getSegmentoUrl();

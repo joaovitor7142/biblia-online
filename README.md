@@ -1,2 +1,3 @@
-# projetor-bom-jardim
-Projeto para exibir informações em uma tela de projetor na igreja do Bom Jardim 2 em Ipatinga/MG
+# biblia-online
+
+Projeto para disponibilizar a bíblia de forma online para a igreja do Bom Jardim 2 em Ipatinga/MG

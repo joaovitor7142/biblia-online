@@ -19,7 +19,7 @@ div.seletor-livros {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
-div.seletor-capitulos {
+div.seletor-capitulos, div.seletor-versos {
     display: grid;
     gap: 4px;
     grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
